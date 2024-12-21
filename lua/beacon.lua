@@ -19,7 +19,7 @@ local default_config = {
   min_jump = 10,
   cursor_events = { 'CursorMoved' },
   window_events = { 'WinEnter', 'FocusGained' },
-  highlight = { bg = 'white', ctermbg = 15, default = true },
+  highlight = { bg = 'fg', ctermbg = 15, default = true },
 }
 
 -- weird behaviour in oil window
