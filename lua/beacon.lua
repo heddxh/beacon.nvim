@@ -139,9 +139,14 @@ end
 function M.setup(config)
   M.config = vim.tbl_extend('force', default_config, config or {})
 
-  vim.api.nvim_set_hl(0, 'Beacon', M.config.highlight)
-
   local beacon_group = vim.api.nvim_create_augroup('beacon_group', { clear = true })
+
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    group = beacon_group,
+    callback = function()
+      vim.api.nvim_set_hl(0, 'Beacon', M.config.highlight)
+    end,
+  })
 
   vim.api.nvim_create_autocmd(M.config.window_events, {
     pattern = '*',
